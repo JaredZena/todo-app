@@ -12,17 +12,16 @@ export class BasicAuthenticationService {
 
   executeAuthenticationService(username: string, password: string) {
     console.log('entering to executeAuthenticationService');
-    let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
+    const basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
     console.log(basicAuthHeaderString);
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       Authorization : basicAuthHeaderString
     });
     console.log(headers);
     return this.http.get<AuthenticationBean>(
-      `http://localhost:8080/basicauth`,{headers}).pipe(
+      `http://localhost:8080/basicauth`, {headers}).pipe(
         map(
           data => {
-            console.log('susbscribing to basiauth');
             console.log(data);
             sessionStorage.setItem('authenticateUser', username);
             sessionStorage.setItem('token', basicAuthHeaderString);

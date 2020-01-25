@@ -15,7 +15,7 @@ export class HttpInterceptorBasicAuthService implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler) {
     const basicAuthHeaderString = this.basicAuthenticationService.getAuthenticatedToken();
-    console.log('token' + basicAuthHeaderString);
+    console.log('token: ' + basicAuthHeaderString);
     request = request.clone({
       setHeaders : {
         Authorization : basicAuthHeaderString
