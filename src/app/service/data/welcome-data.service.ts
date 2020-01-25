@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ɵangular_packages_platform_browser_platform_browser_d } from '@angular/platform-browser';
 
 export class HelloWorldBean {
   constructor(public message: string){ }
@@ -11,7 +12,7 @@ export class HelloWorldBean {
 export class WelcomeDataService {
 
   constructor(
-    private http:HttpClient
+    private http: HttpClient
   ) { }
 
   executeHelloWorldBeanService() {
